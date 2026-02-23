@@ -1,32 +1,86 @@
-# Veículos API - Teste Técnico .NET Sênior
+Gestão de Veículos API
+Esta é uma Web API profissional desenvolvida em ASP.NET Core 8, focada em boas práticas de arquitetura, segurança e performance. O projeto gerencia um estoque de veículos com autenticação de usuários via JWT.
 
-Esta é uma API REST desenvolvida em .NET 8 seguindo os princípios de **Clean Architecture**, **DDD** e o padrão **CQRS** com MediatR.
+Arquitetura e Padrões
+O projeto foi construído seguindo os princípios da Clean Architecture e CQRS, garantindo baixo acoplamento e alta testabilidade.
 
- Tecnologias Utilizadas
-- .NET 8 (ASP.NET Core)
-- Entity Framework Core InMemory
-- MediatR (Pattern CQRS)
-- FluentValidation (Validação de entrada)
-- JWT Authentication & Authorization
-- BCrypt.Net (Hash de senha)
-- Swagger (OpenAPI)
+CQRS com MediatR: A lógica de negócio é dividida entre Commands (Escrita) e Queries (Leitura), orquestrados pelo MediatR.
 
- Arquitetura
-A solução está dividida em 4 camadas principais:
-1. **Domain**: Entidades, Enums e Interfaces de Repositório (Core do negócio).
-2. **Application**: Commands, Queries, Handlers, DTOs e Services.
-3. **Infra**: Implementação do DbContext InMemory e Repositórios.
-4. **Api**: Controllers, Configurações de JWT e Middleware de exceção.
+Service Layer + Handlers: Uma camada de aplicação que abstrai a complexidade do domínio.
 
-Como Executar
-1. Clone o repositório.
-2. Certifique-se de ter o SDK do .NET 8 instalado.
-3. Na pasta raiz, execute: `dotnet run --project Veiculos.Api`
-4. Acesse o Swagger em: `https://localhost:PORTA/swagger`
+Repository Pattern: Desacoplamento entre a persistência de dados e a regra de negócio.
 
-Como Testar a Autenticação
-1. **Cadastrar Usuário**: Use o endpoint `POST /api/usuarios` para criar sua conta.
-2. **Login**: Use o endpoint `POST /api/auth/login` com as credenciais criadas. 
-3. **Token**: Copie o `accessToken` retornado.
-4. **Autorizar**: No Swagger, clique no botão **Authorize**, digite `Bearer SEU_TOKEN_AQUI` e clique em Authorize.
-5. **Veículos**: Agora os endpoints de `/api/veiculos` estarão liberados.
+Segurança com BCrypt: As senhas dos usuários nunca são salvas em texto plano; utilizamos hashing de mão única para proteção de dados.
+
+FluentValidation: Validação robusta de entrada de dados para garantir a integridade do sistema.
+
+Tecnologias Utilizadas
+ASP.NET Core 8 (Web API)
+
+Entity Framework Core (In-Memory Database)
+
+MediatR (Padrão Mediator)
+
+FluentValidation (Validação de Schemas)
+
+BCrypt.Net (Criptografia de Senhas)
+
+Swagger/OpenAPI (Documentação Interativa)
+
+Como Executar o Projeto
+Pré-requisitos: Ter o SDK do .NET 8 instalado.
+
+Execução:
+
+Bash
+dotnet restore
+dotnet run --project Veiculos.WebApi
+Acesso: A API abrirá automaticamente no navegador através do Swagger: https://localhost:PORTA/swagger.
+
+Como Utilizar a Autenticação (Swagger)
+A API utiliza o padrão JWT Bearer. Siga os passos abaixo para testar endpoints protegidos:
+
+Cadastrar Usuário:
+
+Vá ao endpoint POST /api/Usuarios.
+
+Envie um JSON: { "nome": "Seu Nome", "login": "admin", "senha": "123" }.
+
+Realizar Login:
+
+Vá ao endpoint POST /api/Auth/login.
+
+Use o login e senha criados.
+
+Copie o token gerado na resposta.
+
+Habilitar o Cadeado:
+
+No topo da página do Swagger, clique no botão Authorize.
+
+No campo, digite: Bearer SEU_TOKEN_AQUI (importante manter o espaço após a palavra Bearer).
+
+Clique em Authorize e depois em Close.
+
+Testar Veículos: Agora, todos os endpoints de /api/Veiculos estarão liberados para o seu usuário.
+
+Exemplos de JSON
+Cadastro de Veículo (POST /api/Veiculos)
+JSON
+{
+  "descricao": "Veículo completo e revisado",
+  "marca": 1, 
+  "modelo": "Civic G10",
+  "opcionais": "Ar condicionado, Direção Hidráulica, Teto Solar",
+  "valor": 98500.00
+}
+(Nota: O campo marca é um Enum. Ex: 1 = Fiat, 2 = Ford, etc.)
+
+Organização de Pastas
+Veiculos.Domain: Entidades, Enums e Interfaces dos Repositórios.
+
+Veiculos.Application: Commands, Queries, Handlers e Validations.
+
+Veiculos.Infra: Contexto do EF Core e implementação dos Repositórios.
+
+Veiculos.WebApi: Controllers e configurações de inicialização.
