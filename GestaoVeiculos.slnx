@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Veiculos.Application/Veiculos.Application.csproj" />
+  <Project Path="Veiculos.Domain/Veiculos.Domain.csproj" />
+  <Project Path="Veiculos.Infra/Veiculos.Infra.csproj" />
+  <Project Path="Veiculos.WebApi/Veiculos.WebApi.csproj" />
+</Solution>
