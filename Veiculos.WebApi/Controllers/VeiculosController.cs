@@ -5,7 +5,7 @@ using Veiculos.Application.Interfaces;
 
 namespace Veiculos.WebApi.Controllers;
 
-[Authorize] // Bloqueia acesso sem Token JWT
+[Authorize] 
 [ApiController]
 [Route("api/[controller]")]
 public class VeiculosController(IVeiculoService service) : ControllerBase
