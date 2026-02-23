@@ -1,11 +1,7 @@
-Aqui está um README.md de alto nível. Ele foi escrito para impressionar quem for ler o código, destacando que você não apenas "fez o código", mas aplicou padrões de arquitetura modernos.
-
-Copie e cole o conteúdo abaixo no arquivo README.md na raiz da sua pasta:
-
-🚗 Gestão de Veículos API
+Gestão de Veículos API
 Esta é uma Web API profissional desenvolvida em ASP.NET Core 8, focada em boas práticas de arquitetura, segurança e performance. O projeto gerencia um estoque de veículos com autenticação de usuários via JWT.
 
-🏗️ Arquitetura e Padrões
+Arquitetura e Padrões
 O projeto foi construído seguindo os princípios da Clean Architecture e CQRS, garantindo baixo acoplamento e alta testabilidade.
 
 CQRS com MediatR: A lógica de negócio é dividida entre Commands (Escrita) e Queries (Leitura), orquestrados pelo MediatR.
@@ -18,7 +14,7 @@ Segurança com BCrypt: As senhas dos usuários nunca são salvas em texto plano;
 
 FluentValidation: Validação robusta de entrada de dados para garantir a integridade do sistema.
 
-🛠️ Tecnologias Utilizadas
+Tecnologias Utilizadas
 ASP.NET Core 8 (Web API)
 
 Entity Framework Core (In-Memory Database)
@@ -31,7 +27,7 @@ BCrypt.Net (Criptografia de Senhas)
 
 Swagger/OpenAPI (Documentação Interativa)
 
-🚀 Como Executar o Projeto
+Como Executar o Projeto
 Pré-requisitos: Ter o SDK do .NET 8 instalado.
 
 Execução:
@@ -41,7 +37,7 @@ dotnet restore
 dotnet run --project Veiculos.WebApi
 Acesso: A API abrirá automaticamente no navegador através do Swagger: https://localhost:PORTA/swagger.
 
-🔐 Como Utilizar a Autenticação (Swagger)
+Como Utilizar a Autenticação (Swagger)
 A API utiliza o padrão JWT Bearer. Siga os passos abaixo para testar endpoints protegidos:
 
 Cadastrar Usuário:
@@ -68,7 +64,7 @@ Clique em Authorize e depois em Close.
 
 Testar Veículos: Agora, todos os endpoints de /api/Veiculos estarão liberados para o seu usuário.
 
-📝 Exemplos de JSON
+Exemplos de JSON
 Cadastro de Veículo (POST /api/Veiculos)
 JSON
 {
@@ -80,7 +76,7 @@ JSON
 }
 (Nota: O campo marca é um Enum. Ex: 1 = Fiat, 2 = Ford, etc.)
 
-📁 Organização de Pastas
+Organização de Pastas
 Veiculos.Domain: Entidades, Enums e Interfaces dos Repositórios.
 
 Veiculos.Application: Commands, Queries, Handlers e Validations.
