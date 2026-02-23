@@ -1,7 +1,7 @@
-Gestão de Veículos API
+**Gestão de Veículos API**
 Esta é uma Web API profissional desenvolvida em ASP.NET Core 8, focada em boas práticas de arquitetura, segurança e performance. O projeto gerencia um estoque de veículos com autenticação de usuários via JWT e validação rigorosa de dados.
 
-🏗️ Arquitetura e Padrões
+**Arquitetura e Padrões**
 O projeto foi construído seguindo os princípios da Clean Architecture e CQRS, garantindo baixo acoplamento e alta testabilidade.
 
 CQRS com MediatR: Lógica de negócio dividida entre Commands (Escrita) e Queries (Leitura).
@@ -14,7 +14,7 @@ Segurança (JWT + BCrypt): Autenticação via tokens JWT. As senhas são protegi
 
 FluentValidation: Validações automáticas que garantem o retorno de HTTP 400 (Bad Request) para entradas inválidas.
 
-🛠️ Tecnologias Utilizadas
+**Tecnologias Utilizadas**
 ASP.NET Core 8 (Web API)
 
 Entity Framework Core (In-Memory Database)
@@ -27,7 +27,7 @@ BCrypt.Net (Criptografia de Senhas)
 
 Swagger/OpenAPI (Documentação Interativa)
 
-🚀 Como Executar o Projeto
+**Como Executar o Projeto**
 Pré-requisitos: Ter o SDK do .NET 8 instalado.
 
 Execução:
@@ -37,7 +37,7 @@ dotnet restore
 dotnet run --project Veiculos.WebApi
 Acesso: A API abrirá automaticamente no navegador através do Swagger. Caso não abra, acesse a URL indicada no console (ex: https://localhost:7139).
 
-🔐 Guia de Teste: Autenticação e Validação
+**Guia de Teste: Autenticação e Validação**
 Como utilizamos um Banco de Dados em Memória, os dados são resetados a cada execução. Siga esta ordem para testar os endpoints protegidos:
 
 1. Cadastrar Usuário
@@ -78,7 +78,7 @@ JSON
 }
 Nota: O campo marca é um Enum. Caso envie um valor fora do range definido, a API retornará erro de validação.
 
-📁 Organização de Pastas
+**Organização de Pastas**
 Veiculos.Domain: Entidades, Enums e Interfaces dos Repositórios.
 
 Veiculos.Application: Commands, Queries, Handlers e Validations (FluentValidation).
